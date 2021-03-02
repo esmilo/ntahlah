@@ -1,6 +1,7 @@
 const router = require("express").Router()
-const { addQuiz } = require("../controllers/quiz")
+const { addQuiz, getQuizByIdWithTopic } = require("../controllers/quiz")
 
 router.post("/", addQuiz)
+router.get("/:quizId/topics", getQuizByIdWithTopic)
 
 module.exports = router

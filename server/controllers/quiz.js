@@ -1,4 +1,4 @@
-const { Quiz } = require("../models")
+const { Topic, Quiz } = require("../models")
 
 const addQuiz = async (req, res) => {
   try {
@@ -19,6 +19,19 @@ const addQuiz = async (req, res) => {
   }
 }
 
+const getQuizByIdWithTopic = async (req, res) => {
+  try {
+    const { quizId } = req.params
+    const quiz = await Quiz.findByPk(Number(quizId), {
+      include: [Topic]
+    })
+    return res.status(200).json(quiz)
+  } catch (err) {
+    return res.status(500).json(err)
+  }
+}
+
 module.exports = {
-  addQuiz
+  addQuiz,
+  getQuizByIdWithTopic
 }
