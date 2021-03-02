@@ -1,7 +1,7 @@
 const router = require("express").Router()
-const { getTopic, getTopicById } = require("../controllers/topic")
+const { getTopic, getTopicByIdWithQuizzes } = require("../controllers/topic")
 
 router.get("/", getTopic)
-router.get("/:topicId", getTopicById)
+router.get("/:topicId/quizzes", getTopicByIdWithQuizzes)
 
 module.exports = router

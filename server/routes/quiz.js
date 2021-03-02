@@ -1,7 +1,6 @@
 const router = require("express").Router()
+const { addQuiz } = require("../controllers/quiz")
 
-router.get("/", (req, res, next) => {
-  res.json("hai")
-})
+router.post("/", addQuiz)
 
 module.exports = router
